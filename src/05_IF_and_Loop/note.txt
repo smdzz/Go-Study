@@ -1,0 +1,20 @@
+if condition {
+    // code to be executed if condition is true
+} else if condition-1 {
+    // code to be executed id condition-1 is true
+} else {
+    // code to be executed if condition and condition-1 is false
+}
+
+if 条件与其他主要编程语言的差异
+1. condition 表达式结果必须为布尔值
+2. 支持变量赋值
+if var declaration; condition {
+    // code to be executed if condition is true
+}
+
+switch 条件
+1. 条件表达式不限制为常亮或者整数
+2. 单个case中,可以出现多个结果选项,使用逗号分隔
+3. 与c语言等规则相反,Go语言不需要用break来明确退出一个case
+4. 可以不设定switch之后的条件表达式,在此情况下,整个switch结果与多个if...else...的逻辑作用相同
