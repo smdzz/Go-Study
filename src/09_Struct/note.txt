@@ -1,0 +1,29 @@
+1. 结构体定义需要使用 type 和 struct 语句。struct 语句定义一个新的数据类型，结构体有中有一个或多个成员。type 语句设定了结构体的名称。
+    结构体的格式如下：
+
+type struct_variable_type struct {
+   member definition;
+   member definition;
+   ...
+   member definition;
+}
+2. 一旦定义了结构体类型,他就能用来变量的声明
+   variable_name := structure_variable_type {value1, value2...valuen}
+   或
+   variable_name := structure_variable_type { key1: value1, key2: value2..., keyn: valuen}
+
+3. struct 类似于 java 中的类，可以在 struct 中定义成员变量。
+
+   要访问成员变量，可以有两种方式：
+
+    1.通过 struct 变量.成员 变量来访问。
+   2.通过struct 指针.成员 变量来访问。
+   不需要通过 getter, setter 来设置访问权限。
+
+   type Rect struct{   //定义矩形类
+       x,y float64       //类型只包含属性，并没有方法
+       width,height float64
+   }
+   func (r *Rect) Area() float64{    //为Rect类型绑定Area的方法，*Rect为指针引用可以修改传入参数的值
+       return r.width*r.height         //方法归属于类型，不归属于具体的对象，声明该类型的对象即可调用该类型的方法
+   }
