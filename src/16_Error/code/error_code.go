@@ -52,7 +52,7 @@
 //}
 
 
-// 详解 panic defer recover
+// 详解 panic defer recover异常处理
 package main
 
 import (
