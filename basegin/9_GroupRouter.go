@@ -7,6 +7,9 @@ import (
 
 func main() {
 	engine := gin.Default()
+	//// Logging to a file.日志不再打印到终端,全部存储到gin.log中
+	//f, _ := os.Create("gin.log")
+	//gin.DefaultWriter = io.MultiWriter(f)
 
 	routerGroup := engine.Group("/user")
 	routerGroup.POST("/register", register)
