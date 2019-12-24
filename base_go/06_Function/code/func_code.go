@@ -166,23 +166,39 @@ package main
 //}
 //下面定义一个结构体类型和该类型的一个方法：
 
-import (
-"fmt"
-)
+import "fmt"
 
 /* 定义结构体 */
 type Circle struct {
 	radius float64
 }
 
-func main() {
-	var c1 Circle
-	c1.radius = 10.00
-	fmt.Println("圆的面积 = ", c1.getArea())
-}
+//func main() {
+//	var c1 Circle
+//	c1.radius = 10.00
+//	fmt.Println("圆的面积 = ", c1.getArea())
+//}
 
 //该 method 属于 Circle 类型对象中的方法
 func (c Circle) getArea() float64 {
 	//c.radius 即为 Circle 类型对象中的属性
 	return 3.14 * c.radius * c.radius
+}
+
+func pipe(ff func() int) int {
+	return ff()
+}
+
+type FormatFunc func(s string, x, y int) string
+
+func format(ff FormatFunc, s string, x, y int) string {
+	return ff(s, x, y)
+}
+
+func main() {
+	s1 := pipe(func() int {return 100})
+	s2 := format(func(s string, x, y int) string {
+		return fmt.Sprintf(s, x, y)
+	}, "%d, %d", 10, 20)
+	fmt.Println(s1, s2)
 }
