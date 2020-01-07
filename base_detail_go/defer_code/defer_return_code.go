@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	fmt.Println("return:", a())
 	fmt.Println("return:", b())
+	d()
 }
 
 // 带有defer的return的实现逻辑
@@ -36,3 +37,30 @@ func b() (i int) {
 	}()
 	return i
 }
+
+func c() {
+	defer un(trace("c"))
+	fmt.Println("c的逻辑代码")
+}
+
+func d() {
+	defer un(trace("d"))
+	fmt.Println("d的逻辑代码")
+	c()
+}
+
+func trace(s string) string {
+	fmt.Println("开始执行", s)
+	return s
+}
+
+func un(s string) {
+	fmt.Println("结束执行", s)
+}
+
+//开始执行 d
+//d的逻辑代码
+//开始执行 c
+//c的逻辑代码
+//结束执行 c
+//结束执行 d
