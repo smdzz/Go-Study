@@ -24,7 +24,7 @@ func Sqrt(f float64) (float64, error) {
         直到被recover捕获或运行到最外层函数。
     3. panic不但可以在函数正常流程中抛出，在defer逻辑里也可以再次调用panic或抛出panic。defer里面的panic能够被后续执行的defer捕获。
     4. recover用来捕获panic，阻止panic继续向上传递。recover()和defer一起使用，
-        但是defer只有在后面的函数体内直接被掉用才能捕获panic来终止异常，否则返回nil，异常继续向外传递。
+        但是recover()只有在defer后面的函数体内直接被调用才能捕获panic来终止异常，否则返回nil，异常继续向外传递。
 3. panic和os.Exit的区别
 os.Exit退出时不会调用defer指定的函数
 os.Exit退出时不输出当前调用栈信息
