@@ -52,9 +52,31 @@
 //实例
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
+	slice := []int{10, 20, 30, 40, 50}
+	// 创建索引时,还可以用来控制新切片的容量,其目的不是要新增容量,而是要限制容量
+	//对于slice[i:j:k](2:3:4),长度为j-k(即3-2=1),容量为k-i(4-2=2)
+	ss := slice[2:3:4]
+	fmt.Println(ss)
+	s := slice[2:3]
+	fmt.Println(s)
+	// 由于s切片是对原切片的引用,切片间共享同一个底层数组,当进行append操作并且不会大于切片的容量时,会修改原切片的数据,
+	// 当进行append操作并且大于切片的容量时,会创建一个新的容量更大的切片,触发数据搬移操作,此时与原切片不再共享同一个底层数组,不会再影响原切片的值
+	s = append(s, 99, 1000, 434)
+	fmt.Println(s)
+	fmt.Println(slice)
+	// 将一个切片追加到另外一个切片中,使用...运算符,...会将切片中的数据拿出来
+	s = append(s, []int{3, 5, 7}...)
+
+	// 多维数组
+	slices := [][]int{{100}, {10, 20}}
+	slices[0] = append(slices[0], 33)
+	fmt.Println(slices)
+
 	var numbers []int
 	printSlice(numbers)
 
