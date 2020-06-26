@@ -1,0 +1,10 @@
+1. 内部包
+Go语言的封装只有两个特性,一个是私有的不可导出的成员,另一个是公开的可导出成员
+    - 内部包:
+        在go云严重,构建工具会对导入路径包含internal关键字的包做特殊处理,一个internal包只能被和internal目录有同一个父目录的包所导入.
+        例如:
+            net/http
+            net/http/internal/chunked
+            net/http/httputil
+            net/url
+            net/http/internal/chunked内部包只能被net/http/httputil或net/http包导入,但是不能被http/url包导入,不过net/url包可以导入net/http/httputil
