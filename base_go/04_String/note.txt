@@ -1,0 +1,21 @@
+strings
+    1. string.HasSuffix(name, suffix): 判断name的后缀是否是suffix
+    2. 遍历中文问题: 使用[]rune(str)转换字符串
+    3. 字符串转整数: num, err := strconv.Atoi("12")
+    4. 整数转字符串: str := strconv.Itoa(12)
+    5. 字符串转换为[]byte: var bytes = []byte("hello")
+    6. byte转换为字符串:  var str := string([]byte(97, 56)
+    7. 十进制转换为16, 8, 2进制, str := strconv.FormatInt(123, 2),返回的是一个二进制的字符串
+    8. 查找子串是否在指定的字符串中,bool_ := strings.Contains("woe们尽快发动机", "woe们"),判断第一个参数是否包含第二个参数
+    9. 查找字符串s中包含几个子串: num := strings.Count("aaaasss", "a"), 判断第一个子串包含是多少个第二个字串
+    10. 比较两个字符串不区分大小写:strings.EqualFold("aa", "AA") -> true
+    11. 返回子串在字符串第一次出现的index值,如果没有返回-1: index = strings.Index("name", "9")
+    12: 返回子串在字符串最后依次出现的index值,如果没有返回-1: strings.LastIndex("name as", "a") -> 5
+    13: 将指定的字符串替换为另外一个字符串,当最后一个参数为-1(小于0)时表示全部替换 strings.Replace("e name", "e", " 替换 ", 1)
+    14: 按照指定的某个字符为分割标识进行切割字符串为字符串数组. strings.Split("name,time,hello", ",")
+    15: 将字符串的字母进行大小写的转换:strings.ToUpper("name") 将字符串转换为大写, strings.ToLower("RUjj")将字符串转换为小写
+    16: 去除两边空格. strings.TrimSpace("  hdjksfah     ")
+    17: 去除两边指定内容. strings.Trim("a hdjksfah     a  ", "a ") 去除两边的"a" 和 " ",后面字符串每个字符是或的关系
+    18. 去除左边或者右边指定的内容. strings.TrimRight("  hdjksfah     ", " "), strings.TrimLeft("  hdjksfah     ", " ")
+    19. 判断字符串是否以另外一个字符串开头. strings.HasPrefix("https://", "https")
+    19. 判断字符串是否以另外一个字符串结尾. strings.HasSuffix("https://", "//")
