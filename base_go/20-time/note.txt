@@ -1,0 +1,21 @@
+时间和日期相关函数
+    1. nowTime := time.Now() 获取当前时间
+    2. nowTime.Year() 获取当前年份
+    3. nowTime.Month() 获取当前月,为Month类型,要返回数字使用int转换
+    4. nowTime.Day() 获取当前天
+    5. nowTime.Hour() 获取当前小时
+    6. nowTime.Minute() 获取当前分钟
+    7. nowTime.Second() 获取当前秒数
+    8. nowTime.Format("2006-01-02 15:04:05") 格式化时间输出,"2006-01-02 15:04:05"格式可以自由组合,但是数字不能变
+    9. time.Sleep(d Duration) Duration为纳秒,常量:
+        Nanosecond  Duration = 1
+        Microsecond          = 1000 * Nanosecond
+        Millisecond          = 1000 * Microsecond
+        Second               = 1000 * Millisecond
+        Minute               = 60 * Second
+        Hour                 = 60 * Minute
+        睡一分钟: time.Sleep(1 * time.Minute)
+    10.nowTime.Unix() 获取从1970年1月1日到现在时间的秒数
+    11.nowTime.UnixNano() 获取从1970年1月1日到现在时间的纳秒数
+    12.nowTime.UTC() 获取当前时间所对应的Utc时间
+    13.time.Now().Sub(nowTime) 获取当前时间与nowTime的差值,单位为纳秒,也可以使用time.Now().Unix() - nowTime.Unix()获取差值秒数
