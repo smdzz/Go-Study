@@ -5,7 +5,7 @@ Map 是一种集合，所以我们可以像迭代数组和切片那样迭代它�
 2. 定义 Map
    可以使用内建函数 make 也可以使用 map 关键字来定义 Map:
 
-   /* 声明变量，默认 map 是 nil */
+   /* 声明变量，默认 map 是 nil */声明的map不会分配内存空间,不可以赋值
    var map_variable map[key_data_type]value_data_type
 
    /* 使用 make 函数 */
@@ -13,3 +13,7 @@ Map 是一种集合，所以我们可以像迭代数组和切片那样迭代它�
    如果不初始化 map，那么就会创建一个 nil map。nil map 不能用来存放键值对
 3. delete() 函数
    delete() 函数用于删除集合的元素, 参数为 map 和其对应的 key。
+   delete(map[string]string, key)key不存在也不会报错
+4. 如果想要删除所有的key
+    1. 遍历所有的key,遍历删除
+    2. 直接make一个新空间
